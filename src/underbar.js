@@ -86,11 +86,11 @@
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, test) {
     var acc = [];
-    for (var i = 0; i < collection.length; i++) {
-      if (test(collection[i]) === true) {
-        acc.push(collection[i]);
+    _.each(collection, function(elem) {
+      if (test(elem) === true) {
+        acc.push(elem);
       }
-    }
+    });
     return acc;
   };
 
@@ -99,11 +99,11 @@
     // TIP: see if you can re-use _.filter() here, without simply
     // copying code in and modifying it
     var acc = [];
-    for (var i = 0; i < collection.length; i++) {
-      if (!test(collection[i])) {
-        acc.push(collection[i]);
+    _.each(collection, function(elem) {
+      if (!test(elem)) {
+        acc.push(elem);
       }
-    }
+    });
     return acc;
   };
 
@@ -117,6 +117,8 @@
     // map() is a useful primitive iteration function that works a lot
     // like each(), but in addition to running the operation on all
     // the members, it also maintains an array of results.
+    
+
   };
 
   /*
