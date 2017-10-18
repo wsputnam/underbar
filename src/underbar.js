@@ -109,7 +109,13 @@
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array, isSorted, iterator) {
-
+    var newArray = [];
+      _.each(array, function(element) {
+        if (newArray.indexOf(element) === -1) {
+          newArray.push(element);
+        }
+      });
+    return newArray;
   };
 
 
