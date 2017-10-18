@@ -109,6 +109,7 @@
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array, isSorted, iterator) {
+
   };
 
 
@@ -163,6 +164,21 @@
   //   }); // should be 5, regardless of the iterator function passed in
   //          No accumulator is given so the first element is used.
   _.reduce = function(collection, iterator, accumulator) {
+    if (Array.isArray(collection) && accumulator !== undefined) {
+      var acc = accumulator;
+      _.each(collection, function(element, i) {
+        acc = iterator(acc, element, i);
+      });
+      return acc;
+    } else if (accumulator === undefined) {
+      var acc = collection[0];
+      collection = collection.slice(1);
+      _.each(collection, function(element, i) {
+        acc = iterator(acc, element, i);
+      });
+      return acc;
+    }
+
   };
 
   // Determine if the array or object contains a given value (using `===`).
