@@ -98,14 +98,10 @@
   _.reject = function(collection, test) {
     // TIP: see if you can re-use _.filter() here, without simply
     // copying code in and modifying it
-    var acc = [];
-    _.each(collection, function(elem) {
-      if (!test(elem)) {
-        acc.push(elem);
-      }
+    return _.filter(collection, function(elem) {
+      return test(elem) === false;
     });
-    return acc;
-  };
+  }
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array, isSorted, iterator) {
